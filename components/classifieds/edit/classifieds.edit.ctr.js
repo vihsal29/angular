@@ -7,10 +7,10 @@
         .controller('editClassifiedsCtrl' , function ($scope ,$state ,$mdDialog,$timeout , $mdSidenav, classifiedsFactory) {
 
             var vm = this ;
-
+            vm.classifieds = classifiedsFactory.ref;
             vm.closeSidebar = closeSidebar;
             vm.saveEdit = saveEdit;
-            vm.classified = $state.params.classified;
+            vm.classified = vm.classifieds.$getRecord($state.params.id);
 
             $timeout(function (){
                 $mdSidenav('left').open();
@@ -31,8 +31,11 @@
             }
 
             function saveEdit() {
-                $scope.$emit('editSaved', 'Edit Saved!')
-                vm.sidenavOpen = false;
+                vm.classifieds.$save(vm.classified).then(function (){
+                    $scope.$emit('editSaved', 'Edit Saved!')
+                    vm.sidenavOpen = false;
+                });
+
             }
 
         });
