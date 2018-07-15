@@ -20,15 +20,12 @@
             vm.editing;
 
             vm.classifieds = classifiedsFactory.ref;
-            vm.classifieds.$loaded().then(function (classifieds) { vm.categories = getCategories(classifieds); });
-                // /clasifiedsFactory.getClassifieds().then(function(classifieds){
-                //      VM.CLASSIFIEDS = CLASSIFIEDS.DATA ;
-                //      vm.categories = getCategories(vm.classifieds);
-                //  });
+            vm.classifieds.$loaded().then(function (classifieds) {
+                vm.categories = getCategories(classifieds);
+            });
 
                 $scope.$on('newClassified', function (event, classified) {
-                    classified.id = vm.classifieds.length + 1;
-                    vm.classifieds.push(classified);
+                   vm.classifieds.$add(classified);
                     showToast('Classified Saved!');
                 });
 
