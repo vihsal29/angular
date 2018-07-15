@@ -1,0 +1,21 @@
+{
+  "name": "angularSpa",
+  "version": "1.0.0",
+  "description": "A Single Page Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vishal Ranjan",
+  "license": "MIT",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.18",
+    "angular": "^1.7.2",
+    "angular-animate": "^1.7.2",
+    "angular-aria": "^1.7.2",
+    "angular-material": "^1.1.10",
+    "angular-ui-router": "^1.0.18",
+    "mdi": "^2.2.43",
+    "npm": "^6.1.0"
+  }
+}
